@@ -11,7 +11,7 @@ client.music = new Enmap();
 
 client.config = config; // on rend les paramètres du bot globales
 
-fs.readdir('./commands/', (err, files) => { // le but est de rendre chaque commande globale
+fs.readdir('./commands/', (err, files) => { // le but est de rendre chaque commande globale, donc on lit les fichiers présents dans le dossier 'commands'
   if (err) console.error(err);
   console.log(`${files.length} fichiers détectés dans le dossier commands.`);
   files.forEach((f) => {
@@ -22,11 +22,11 @@ fs.readdir('./commands/', (err, files) => { // le but est de rendre chaque comma
 
     client.commands.set(props.help.name, props);
     /* ↑ on crée une variable globale (client.commands.<nom de la var>)
-       qui contient le code de la commande */
+       qui contient le code de la commande, et que l'on pourra utiliser de n'importe où */
 
     props.help.aliases.forEach((alias) => {
       client.aliases.set(alias, props.help.name);
-      // ↑ on associe chaque alias avec la commande correspondante
+      // ↑ on associe chaque 'alias' avec la commande correspondante
     });
   });
 });
