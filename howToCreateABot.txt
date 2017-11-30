@@ -1,9 +1,0 @@
-1- Avoir nodejs (télécharger et installer depuis internet)
-2- Utiliser un logiciel de traitement de texte
-3- Utiliser un invite de commandes, que l'on amènera sur notre dossier avec la command cd <chemin du dossier>
-4- Faire un ficher JS où l'on écrira le code de base, comme app.js
-5- Faire npm init -y afin d'obtenir le fichier package.json
-6- npm install discord.js !!! (Avoir git installé?)
-
-→ eslint --init - airbnb, no, json
-→ npm i --save-dev eslint
