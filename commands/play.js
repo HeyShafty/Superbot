@@ -40,4 +40,5 @@ exports.help = {
   aliases: ['p', 'music'],
   description: 'Joue la musique dans un channel vocal à partir d\'un lien YouTube. Vus devez être dans un channel vocal lorsque vous exécutez cette commande !',
   usage: '/play [Lien YouTube]',
+  active: true,
 };

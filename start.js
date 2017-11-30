@@ -20,6 +20,8 @@ fs.readdir('./commands/', (err, files) => { // le but est de rendre chaque comma
 
     const props = require(`./commands/${f}`);
 
+    if (!props.help.active) return; // si la commande est dite 'désactivée, on ne la lit pas'
+
     client.commands.set(props.help.name, props);
     /* ↑ on crée une variable globale (client.commands.<nom de la var>)
        qui contient le code de la commande, et que l'on pourra utiliser de n'importe où */

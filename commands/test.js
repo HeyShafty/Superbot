@@ -7,4 +7,5 @@ exports.help = {
   aliases: ['t', 'isitworking?'],
   description: 'Le but est de tester si le bot marche',
   usage: '/test',
+  active: true,
 };
