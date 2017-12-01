@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
   const streamOptions = { seek: 0, volume: 0.1 }; // il faut que ces paramètres soient générals
   let timesConnected = 0;
 
-  if (timesConnected === 0) {
+  if (timesConnected === 0) { // CREER LES EVENTS EN DEHORS DE TOUSSA
     calledVoiceChannel.join()
       .then((connection) => {
         let voiceConnection;
@@ -22,8 +22,8 @@ exports.run = (client, message, args) => {
         let queue;
         client.music.set(queue, []);
         timesConnected += 1;
-        let stream = ytdl(args[0], { filter: 'audioonly' });
-        let dispatcher = client.music.get(voiceConnection).playStream(stream, streamOptions);
+        const stream = ytdl(args[0], { filter: 'audioonly' });
+        const dispatcher = client.music.get(voiceConnection).playStream(stream, streamOptions);
 
         dispatcher.on('end', () => {
           calledVoiceChannel.leave();
@@ -38,7 +38,7 @@ exports.run = (client, message, args) => {
 exports.help = {
   name: 'play',
   aliases: ['p', 'music'],
-  description: 'Joue la musique dans un channel vocal à partir d\'un lien YouTube. Vus devez être dans un channel vocal lorsque vous exécutez cette commande !',
+  description: 'Joue la musique dans un channel vocal à partir d\'un lien YouTube. Vous devez être dans un channel vocal lorsque vous exécutez cette commande !',
   usage: '/play [Lien YouTube]',
   active: true,
 };
