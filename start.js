@@ -66,6 +66,7 @@ client.on('message', async (message) => { // se lance pour chaque message
 
 client.on('ready', () => { // se lance quand le bot finit de s'allumer
   console.log(`Connecté en tant que ${client.user.username}`);
+  client.user.setGame('DJ Party Tonight');
 
   const type = 'log';
   const title = 'Bot initialisé';
