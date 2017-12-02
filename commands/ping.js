@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
 
 exports.help = {
   name: 'ping',
-  aliases: ['p', 'ms'],
+  aliases: ['ms'],
   description: 'Donne un ping approximatif du bot et de l\'API',
   usage: '/ping',
   active: true,

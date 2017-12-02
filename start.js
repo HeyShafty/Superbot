@@ -85,7 +85,7 @@ client.on('ready', () => { // se lance quand le bot finit de s'allumer
   // ↑ on crée le webhook
   if (!hook) return console.log(`Le webhook n'a pas pu être établi, voici les paramètres envoyés: [${type}] [${title}]\n[${author.username} (${author.id})]${msg}`);
 
-  hook.send(new Discord.RichEmbed() // on envoie le message à traves ke webhook
+  hook.send(new Discord.RichEmbed() // on envoie le message à travers le webhook
     .setColor(color)
     .setAuthor(author.tag)
     .setThumbnail(avatar)
