@@ -1,7 +1,8 @@
 const ytdl = require('ytdl-core');
 
 exports.run = (client, message, args) => {
-  if (!message.member.voiceChannel) {
+  const calledVoiceChannel = message.member.voiceChannel;
+  if (!calledVoiceChannel) {
     message.reply('Il faut que vous soyez dans un channel vocal pour exécuter cette commande');
     return;
   } else if (args.length <= 0 || !args[0].startsWith('https://www.youtube.com/watch?v=')) {
@@ -9,33 +10,21 @@ exports.run = (client, message, args) => {
     return;
   }
 
-  const calledVoiceChannel = message.member.voiceChannel;
   const streamOptions = { seek: 0, volume: 0.1 };
   // ↑ il faut que ces paramètres soient générals & modifiables
 
-  let timesConnected = 0;
+  let botConnection;
 
-  if (timesConnected === 0) { // CREER LES EVENTS EN DEHORS DE TOUSSA ???
-    calledVoiceChannel.join()
-      .then((connection) => {
-        let voiceConnection;
-        let queue;
-        client.music.set(voiceConnection, connection);
-        client.music.set(queue, []);
-        timesConnected += 1;
+  calledVoiceChannel.join()
+    .then((connection) => {
+      client.music.set(botConnection, connection);
+      let stream = ytdl(args[0], { filter: 'audioonly' });
+      let dispatcher = client.music.get(botConnection).playStream(stream, streamOptions);
 
-        const stream = ytdl(args[0], { filter: 'audioonly' });
-        const dispatcher = client.music.get(voiceConnection).playStream(stream, streamOptions); // .playStream() not a function
-
-        dispatcher.on('end', () => {
-          calledVoiceChannel.leave();
-        });
-        dispatcher.on('error', (e) => {
-          console.log(e);
-          message.channel.send('Une erreur s\'est produite.');
-        });
+      dispatcher.on('end', () => {
+        calledVoiceChannel.leave();
       });
-  }
+    });
 };
 
 exports.help = {
