@@ -9,6 +9,7 @@ exports.run = (client, message, args) => {
     if (client.commands.has(command)) {
       command = client.commands.get(command);
       message.channel.send(`= ${command.help.name} = \nUtilisation :: ${command.help.usage}\n${command.help.description}`, { code: 'asciidoc' });
+      // ↑ ajouter l'affichage des alias
     }
   }
 };
