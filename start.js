@@ -6,8 +6,8 @@ const config = require('./config.json');
 const client = new Discord.Client();
 client.commands = new Enmap();
 client.aliases = new Enmap();
-client.music = new Enmap();
-client.music.queue = [];
+client.music = {};
+client.music.queue = {};
 // ↑↑↑ on crée des Enmaps, c'est à dire des trucs qui permettent de stocker
 
 client.config = config; // on rend les paramètres du bot globales
@@ -56,7 +56,6 @@ client.on('message', async (message) => { // se lance pour chaque message
 
   console.log(`Commande: ${command}`);
   console.log(`Arguments: ${args}`);
-  console.log(`Commande interne: ${cmd}`);
 
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
@@ -91,12 +90,12 @@ client.on('ready', () => { // se lance quand le bot finit de s'allumer
   // ↑ on crée le webhook
   if (!hook) return console.log(`Le webhook n'a pas pu être établi, voici les paramètres envoyés: [${type}] [${title}]\n[${author.username} (${author.id})]${msg}`);
 
-  hook.send(new Discord.RichEmbed() // on envoie le message à travers le webhook
-    .setColor(color)
-    .setAuthor(author.tag)
-    .setThumbnail(avatar)
-    .setTitle(title)
-    .setDescription(msg));
+  // hook.send(new Discord.RichEmbed() // on envoie le message à travers le webhook
+  //   .setColor(color)
+  //   .setAuthor(author.tag)
+  //   .setThumbnail(avatar)
+  //   .setTitle(title)
+  //   .setDescription(msg));
 });
 
 client.login(config.token);
