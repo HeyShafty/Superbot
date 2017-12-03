@@ -35,7 +35,7 @@ play | joue de la musique
 
 ## Comprendre le bot
 ### Variable globales
-Nom | Définie à | Utilité
+Nom | Définie dans | Utilité
 ------------- | ------------- | -------------
 client | start.js | Contient toutes les propriétés regardant le bot, commandes, token...
 message | start.js, 'message' event | Contient toutes les propriétés du message traité
