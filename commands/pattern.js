@@ -7,5 +7,5 @@ exports.help = {
   aliases: ['', ''],
   description: '',
   usage: '',
-  active: false,
+  active: false, // NE PAS OUBLIER DE CHANGER LOL
 };
