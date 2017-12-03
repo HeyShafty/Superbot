@@ -54,6 +54,10 @@ client.on('message', async (message) => { // se lance pour chaque message
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
   // ↑ on prend le code associé à la commande
 
+  console.log(`Commande: ${command}`);
+  console.log(`Arguments: ${args}`);
+  console.log(`Commande interne: ${cmd}`);
+
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
 
