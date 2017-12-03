@@ -17,6 +17,7 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] Généraliser les termes *args, client, etc...*
 - [x] /play
 - [x] /help
+- [ ] Faire afficher les alias des commandes dans le /help
 - [ ] /queue
 - [ ] /volume
 - [ ] /stop
@@ -65,7 +66,7 @@ exports.help = {
 Si vous connaissez bien GitHub, vous pouvez passer cette partie, cependant il serait normal que vous soyez nouveau!
 
 ### Rédigez votre commande
-Il en va de soi que pour partager des nouvelles fonctionalités pour le bot, il faut que celle-ci soit codée
+Il en va de soi que pour partager des nouvelles fonctionalités pour le bot, il faut que celle-ci soit codée.
 **Il faut impérativement que vos partages soient fonctionnels sous peine d'être rejetés**
 
 ### Proposez un pull request
