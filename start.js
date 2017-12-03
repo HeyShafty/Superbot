@@ -6,12 +6,13 @@ const config = require('./config.json');
 const client = new Discord.Client();
 client.commands = new Enmap();
 client.aliases = new Enmap();
-client.music = new Enmap();
+client.music = {};
+client.music.queue = {};
 // ↑↑↑ on crée des Enmaps, c'est à dire des trucs qui permettent de stocker
 
 client.config = config; // on rend les paramètres du bot globales
 
-fs.readdir('./commands/', (err, files) => { // le but est de rendre chaque commande globale
+fs.readdir('./commands/', (err, files) => { // le but est de rendre chaque commande globale, donc on lit les fichiers présents dans le dossier 'commands'
   if (err) console.error(err);
   console.log(`${files.length} fichiers détectés dans le dossier commands.`);
   files.forEach((f) => {
@@ -20,13 +21,15 @@ fs.readdir('./commands/', (err, files) => { // le but est de rendre chaque comma
 
     const props = require(`./commands/${f}`);
 
+    if (!props.help.active) return; // si la commande est dite 'désactivée, on ne la lit pas'
+
     client.commands.set(props.help.name, props);
     /* ↑ on crée une variable globale (client.commands.<nom de la var>)
-       qui contient le code de la commande */
+       qui contient le code de la commande, et que l'on pourra utiliser de n'importe où */
 
     props.help.aliases.forEach((alias) => {
       client.aliases.set(alias, props.help.name);
-      // ↑ on associe chaque alias avec la commande correspondante
+      // ↑ on associe chaque 'alias' avec la commande correspondante
     });
   });
 });
@@ -51,6 +54,9 @@ client.on('message', async (message) => { // se lance pour chaque message
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
   // ↑ on prend le code associé à la commande
 
+  console.log(`Commande: ${command}`);
+  console.log(`Arguments: ${args}`);
+
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
 
@@ -64,6 +70,7 @@ client.on('message', async (message) => { // se lance pour chaque message
 
 client.on('ready', () => { // se lance quand le bot finit de s'allumer
   console.log(`Connecté en tant que ${client.user.username}`);
+  client.user.setGame('DJ Party Tonight');
 
   const type = 'log';
   const title = 'Bot initialisé';
@@ -83,12 +90,12 @@ client.on('ready', () => { // se lance quand le bot finit de s'allumer
   // ↑ on crée le webhook
   if (!hook) return console.log(`Le webhook n'a pas pu être établi, voici les paramètres envoyés: [${type}] [${title}]\n[${author.username} (${author.id})]${msg}`);
 
-  hook.send(new Discord.RichEmbed() // on envoie le message à traves ke webhook
-    .setColor(color)
-    .setAuthor(author.tag)
-    .setThumbnail(avatar)
-    .setTitle(title)
-    .setDescription(msg));
+  // hook.send(new Discord.RichEmbed() // on envoie le message à travers le webhook
+  //   .setColor(color)
+  //   .setAuthor(author.tag)
+  //   .setThumbnail(avatar)
+  //   .setTitle(title)
+  //   .setDescription(msg));
 });
 
 client.login(config.token);

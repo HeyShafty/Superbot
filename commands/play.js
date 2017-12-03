@@ -1,43 +1,54 @@
 const ytdl = require('ytdl-core');
 
 exports.run = (client, message, args) => {
-  if (!message.member.voiceChannel && client.voiceConnections.size === 0) {
-    message.reply('Il faut que vous soyez dans un channel vocal pour exécuter cette commande');
-    return;
-  } else if (args.length <= 0 || !args[0].startsWith('https://www.youtube.com/watch?v=')) {
-    message.reply('Il faut donner le lien d\'une vidéo YouTube [https://www.youtube.com/watch?v=]');
-    return;
-  }
+  const calledVoiceChannel = message.member.voiceChannel;
+  if (!calledVoiceChannel || calledVoiceChannel.type !== 'voice') return message.reply('Je n\'ai pas pu me connecter au channel vocal');
+  if (args.length <= 0 || !args[0].startsWith('https://www.youtube.com/watch?v=')) return message.reply('Il faut donner le lien d\'une vidéo YouTube [https://www.youtube.com/watch?v=]');
 
-  const calledVoiceChannel = message.member.voiceChannel
-    || client.voiceConnections.first().channel;
-  const streamOptions = { seek: 0, volume: 0.1 }; // il faut que ces paramètres soient générals
-  let timesConnected = 0;
+  calledVoiceChannel.join();
 
-  if (timesConnected === 0) {
-    calledVoiceChannel.join()
-      .then((connection) => {
-        let voiceConnection;
-        client.music.set(voiceConnection, connection);
-        let queue;
-        client.music.set(queue, []);
-        timesConnected += 1;
-        let stream = ytdl(args[0], { filter: 'audioonly' });
-        let dispatcher = client.music.get(voiceConnection).playStream(stream, streamOptions);
+  let dispatcher;
 
+  ytdl.getInfo(args[0], (e, info) => {
+    if (e) return message.channel.send(`Lien YouTube invalde: ${e}`);
+    if (!client.music.queue.hasOwnProperty(message.guild.id)) {
+      client.music.queue[message.guild.id] = {};
+      client.music.queue[message.guild.id].playing = false;
+      client.music.queue[message.guild.id].songs = [];
+    }
+    client.music.queue[message.guild.id].songs.push({
+      url: args[0],
+      title: info.title,
+      requester: message.author.username,
+    });
+    message.channel.send(`Ajouté **${info.title}** à la queue`);
+
+    if (client.music.queue[message.guild.id].playing === false) {
+      (function play(music) { // je sais pas trop d'où vient la variable music
+        console.log(music);
+        if (music === undefined) {
+          return message.channel.send('La queue est vide, déconnection...').then(() => {
+            message.member.voiceChannel.leave();
+          });
+        }
+        message.channel.send(`Lecture de: **${music.title}** ajoutée par: **${music.requester}**`);
+        dispatcher = message.guild.voiceConnection.playStream(ytdl(music.url, { filter: 'audioonly' }), { seek: 0, volume: 0.1 });
+        client.music.queue[message.guild.id].playing = true;
         dispatcher.on('end', () => {
-          calledVoiceChannel.leave();
+          play(client.music.queue[message.guild.id].songs.shift());
         });
-        dispatcher.on('error', (e) => {
-          console.log(e); message.channel.send('Une erreur s\'est produite.');
-        });
-      });
-  }
+        dispatcher.on('error', err => message.channel.send(`error: ${err}`).then(() => {
+          play(client.music.queue[message.guild.id].songs.shift());
+        }));
+      }(client.music.queue[message.guild.id].songs.shift()));
+    }
+  });
 };
 
 exports.help = {
   name: 'play',
   aliases: ['p', 'music'],
-  description: 'Joue la musique dans un channel vocal à partir d\'un lien YouTube. Vus devez être dans un channel vocal lorsque vous exécutez cette commande !',
-  usage: '/play [Lien YouTube]',
+  description: 'Joue la musique dans un channel vocal à partir d\'un lien YouTube.',
+  usage: '/play <Lien YouTube>',
+  active: true,
 };
