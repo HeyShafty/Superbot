@@ -1,7 +1,12 @@
 exports.run = (client, message, args) => {
-  // if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ${tokens.prefix}add`);
-  message.channel.send(`= Liste des musiques à suivre =\n\n[Faites la commande /play pour en ajouter une]\n\n${client.music.queue
-    .forEach((c, i) => `${i + 1}. ${c} - Ajoutée par: ${client.music.queue.requester}`).join('\n')}`, { code: 'asciidoc' });
+  if (client.music.queue[message.guild.id].songs[0] === undefined) return message.channel.send('Il n\'y a aucune musique dans la queue');
+  const brackets = `[Liste ${(client.music.queue[message.guild.id].songs.length > 1 ? `des ${client.music.queue[message.guild.id].songs.length} musiques` : 'de la seule musique')} à venir pour le serveur '${message.guild.name}']`;
+  const songList = [];
+  client.music.queue[message.guild.id].songs.forEach((song, i) => songList.push(`${i + 1}. ${song.title} - Ajoutée par: ${song.requester} [\`${song.url}\`]`));
+  message.channel.send(`= Liste des musiques à suivre =\n\n${brackets}\n\n${songList.join('\n')}`, { 
+    code: 'asciidoc',
+    split: true,
+  });
 };
 
 exports.help = {
@@ -9,5 +14,5 @@ exports.help = {
   aliases: ['q', 'list'],
   description: 'Affiche la liste des musiques à venir',
   usage: '/queue',
-  active: false,
+  active: true,
 };
