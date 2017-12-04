@@ -17,6 +17,7 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] Généraliser les termes *args, client, etc...*
 - [x] /play
 - [x] /help
+- [ ] Remplacer tous les `client.music.queue` par `client.music` dans `./commands/play.js`
 - [ ] Faire afficher les alias des commandes dans le /help
 - [ ] /queue
 - [ ] /volume
