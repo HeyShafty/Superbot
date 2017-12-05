@@ -5,7 +5,9 @@ exports.run = (client, message, args) => {
   if (!calledVoiceChannel || calledVoiceChannel.type !== 'voice') return message.reply('Je n\'ai pas pu me connecter au channel vocal');
   if (args.length <= 0 || !args[0].startsWith('https://www.youtube.com/watch?v=')) return message.reply('Il faut donner le lien d\'une vidéo YouTube [https://www.youtube.com/watch?v=]');
 
-  calledVoiceChannel.join();
+  if (!message.guild.voiceConnection) {
+    calledVoiceChannel.join();
+  }
 
   let dispatcher;
 
