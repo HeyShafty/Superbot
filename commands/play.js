@@ -13,15 +13,59 @@ exports.run = (client, message, args) => {
   if (args.length <= 0 || !args[0].startsWith('https://www.youtube.com/watch?v=')) {
     message.reply('Il faut donner le lien d\'une vidéo YouTube [https://www.youtube.com/watch?v=]');
   } else {
-    search(args[0], { maxResults: 3, key: 'AIzaSyACaK9isx3agyfTu-iUuL1Npzp9tF8Sp-k' }, (e, results) => {
+    search(args.join(' '), { maxResults: 3, key: 'AIzaSyACaK9isx3agyfTu-iUuL1Npzp9tF8Sp-k' }, (e, results) => {
       if (e) return message.channel.send(`Erreur: ${e}`);
       const nomVids = [];
+      const urlThumbnails = [];
+      const urlVids = [];
       results.forEach((r) => {
-        if (!r.kind === 'youtube#video') return;
+        if (r.kind !== 'youtube#video') return;
         nomVids.push(r.title);
-        args[0].push(r.link);
-        message.channel.send(r.thumbnails.medium.url);
+        urlVids.push(r.link);
+        urlThumbnails.push(r.thumbnails.medium.url);
       });
+      message.reply('Choisissez entre les vidéos suivantes');
+      for (let i = 0; i < nomVids.length; i += 1) {
+        message.channel.send(new Discord.RichEmbed()
+          .setColor(3447003)
+          .addField(nomVids[i], urlVids[i])
+          .setThumbnail(urlThumbnails[i]));
+      }
+      message.channel.send('​').then((msg) => { // il y a un caractère dans la string
+        setTimeout(() => {
+          msg.react('1⃣').then(() => {
+            msg.react('2⃣').then(() => {
+              msg.react('3⃣').then(() => {
+                const collector = msg.createReactionCollector((reaction, user) => {
+                  if ((reaction.emoji.name === '1⃣' || reaction.emoji.name === '2⃣' || reaction.emoji.name === '3⃣') && user.id === message.author.id) {
+                    return true;
+                  }
+                }, { time: 15000 });
+
+                collector.on('collect', (reaction) => {
+                  if (reaction.emoji.name === '1⃣' && reaction.count > 1) {
+                    //
+                  }
+                  if (reaction.emoji.name === '2⃣' && reaction.count > 1) {
+                    //
+                  }
+                  if (reaction.emoji.name === '3⃣' && reaction.count > 1) {
+                    //
+                  }
+                });
+                collector.on('end', (collected) => {
+                  if (collected.size < 1) {
+                    //
+                  }
+                });
+              });
+            });
+          });
+        }, 3000);
+      });
+
+      console.log(nomVids);
+      console.log(args[0]);
     });
   }
 
