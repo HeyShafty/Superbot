@@ -33,7 +33,7 @@ exports.run = (client, message, args) => {
           });
         }
         message.channel.send(`Lecture de: **${music.title}** ajoutée par: **${music.requester}**`);
-        dispatcher = message.guild.voiceConnection.playStream(ytdl(music.url, { filter: 'audioonly' }), { seek: 0, volume: 0.1 });
+        dispatcher = message.guild.voiceConnection.playStream(ytdl(music.url, { filter: 'audioonly' }), { seek: 0, volume: 0.5 });
         client.music.queue[message.guild.id].playing = true;
         dispatcher.on('end', () => {
           play(client.music.queue[message.guild.id].songs.shift());
