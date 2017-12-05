@@ -27,6 +27,7 @@ exports.run = (client, message, args) => {
       (function play(music) { // je sais pas trop d'où vient la variable music
         console.log(music);
         if (music === undefined) {
+          delete client.music.queue[message.guild.id];
           return message.channel.send('La queue est vide, déconnection...').then(() => {
             message.member.voiceChannel.leave();
           });
