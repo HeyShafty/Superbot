@@ -17,10 +17,11 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] Généraliser les termes *args, client, etc...*
 - [x] /play
 - [x] /help
+- [x] Faire afficher les alias des commandes dans le /help
+- [x] /queue
+- [x] /skip
 - [ ] Remplacer tous les `client.music.queue` par `client.music` dans `./commands/play.js`
 - [ ] Ajouter les flags dans les messages   EX: `-v` pour volume
-- [ ] Faire afficher les alias des commandes dans le /help
-- [ ] /queue
 - [ ] /volume
 - [ ] /stop
 - [ ] /resume
