@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-  // le code ici
+  // message.guild.voiceConnection.dispatcher.end;
 };
 
 exports.help = {
