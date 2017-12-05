@@ -8,9 +8,8 @@ exports.run = (client, message, args) => {
     let command = args[0];
     if (client.commands.has(command)) {
       command = client.commands.get(command);
-      message.channel.send(`= ${command.help.name} = \nUtilisation :: ${command.help.usage}\n${command.help.description}`, { code: 'asciidoc' });
-      // ↑ ajouter l'affichage des alias
-    }
+      message.channel.send(`= ${command.help.name} = \n\nUtilisation :: ${command.help.usage}\nAlias       :: ${command.help.aliases.map(a => a).join('  |  ')}\n\n${command.help.description}`, { code: 'asciidoc' });
+    } else { message.channel.send('Désolé, cette commande n\'est pas répertoriée.'); }
   }
 };
 
