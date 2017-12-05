@@ -1,9 +1,29 @@
 const ytdl = require('ytdl-core');
+const search = require('youtube-search');
+const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
+  /*
+  Vérifier si la vidéo n'est pas trop lonue
+  Proposer plusieures vidéos quand on ne donne pas de lien, avec des réactions
+  Pouvoir changer maxResults avec les flags, ou forcer de prendre la premiere vidéo trouvée
+  */
   const calledVoiceChannel = message.member.voiceChannel;
   if (!calledVoiceChannel || calledVoiceChannel.type !== 'voice') return message.reply('Je n\'ai pas pu me connecter au channel vocal');
-  if (args.length <= 0 || !args[0].startsWith('https://www.youtube.com/watch?v=')) return message.reply('Il faut donner le lien d\'une vidéo YouTube [https://www.youtube.com/watch?v=]');
+  if (args.length <= 0 || !args[0].startsWith('https://www.youtube.com/watch?v=')) {
+    message.reply('Il faut donner le lien d\'une vidéo YouTube [https://www.youtube.com/watch?v=]');
+  } else {
+    search(args[0], { maxResults: 3, key: 'AIzaSyACaK9isx3agyfTu-iUuL1Npzp9tF8Sp-k' }, (e, results) => {
+      if (e) return message.channel.send(`Erreur: ${e}`);
+      const nomVids = [];
+      results.forEach((r) => {
+        if (!r.kind === 'youtube#video') return;
+        nomVids.push(r.title);
+        args[0].push(r.link);
+        message.channel.send(r.thumbnails.medium.url);
+      });
+    });
+  }
 
   if (!message.guild.voiceConnection) {
     calledVoiceChannel.join();
