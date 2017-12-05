@@ -20,6 +20,7 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] Faire afficher les alias des commandes dans le /help
 - [x] /queue
 - [x] /skip
+- [ ] Event: 'progress' from ytld
 - [ ] Remplacer tous les `client.music.queue` par `client.music` dans `./commands/play.js`
 - [ ] Ajouter les flags dans les messages   EX: `-v` pour volume
 - [ ] /volume
