@@ -4,8 +4,7 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
   /*
-  Vérifier si la vidéo n'est pas trop lonue
-  Proposer plusieures vidéos quand on ne donne pas de lien, avec des réactions
+  Vérifier si la vidéo n'est pas trop longue
   Pouvoir changer maxResults avec les flags, ou forcer de prendre la premiere vidéo trouvée
   */
   const calledVoiceChannel = message.member.voiceChannel;
