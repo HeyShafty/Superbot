@@ -24,8 +24,8 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [ ] Event: 'progress' from ytld
 - [ ] Remplacer tous les `client.music.queue` par `client.music` dans `./commands/play.js`
 - [ ] Ajouter les flags dans les messages   EX: `-v` pour volume
-- [ ] /volume
-- [ ] /stop
+- [x] /volume
+- [ ] /stop `-a` pour *all* => arrête le bot
 - [ ] /resume
 - [ ] /précédent
 - [ ] Afficher une rich embed avec la lecture d'une vidéo
