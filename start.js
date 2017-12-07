@@ -59,12 +59,21 @@ client.on('message', async (message) => { // se lance pour chaque message
 
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
-
     // message.flags = [];
     // while (args[0] && args[0][0] === '-') {
     //   message.flags.push(args.shift().slice(1));
     // }
     // ↑ OSEF de ça c'est pour plus tard
+
+    // message.delete();
+
+    // message.guild.channels.get('371963640888426497').send(new Discord.RichEmbed()
+    //   .setThumbnail(message.author.avatarURL)
+    //   .addField('Auteur', message.author, true)
+    //   .addField('Channel', message.guild.channel, true)
+    //   .addField('Commande', message.content, true)
+    //   .setColor(message.member.displayColor));
+    // // .setFooter('', 'https://goo.gl/32dztg'));
   }
 });
 
