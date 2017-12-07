@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
 
   let dispatcher;
 
-  function YouTubeSearch() {
+  function YouTubePlay() {
     ytdl.getInfo(args[0], (e, info) => {
       if (e) return message.channel.send(`Lien YouTube invalde: ${e}`);
       if (!client.music.queue.hasOwnProperty(message.guild.id)) {
@@ -56,7 +56,7 @@ exports.run = (client, message, args) => {
   }
 
   if (args[0].startsWith('https://www.youtube.com/watch?v=')) {
-    YouTubeSearch();
+    YouTubePlay();
   } else {
     search(args.join(' '), { maxResults: 3, key: 'AIzaSyACaK9isx3agyfTu-iUuL1Npzp9tF8Sp-k' }, (e, results) => {
       if (e) return message.channel.send(`Erreur: ${e}`);
@@ -94,7 +94,7 @@ exports.run = (client, message, args) => {
                     msgIDs.forEach(id => message.channel.fetchMessage(id)
                       .then(m => m.delete())
                       .catch(console.error));
-                    YouTubeSearch();
+                    YouTubePlay();
                   }
                   if (reaction.emoji.name === '2⃣' && reaction.count > 1) {
                     args[0] = urlVids[1];
@@ -102,7 +102,7 @@ exports.run = (client, message, args) => {
                     msgIDs.forEach(id => message.channel.fetchMessage(id)
                       .then(m => m.delete())
                       .catch(console.error));
-                    YouTubeSearch();
+                    YouTubePlay();
                   }
                   if (reaction.emoji.name === '3⃣' && reaction.count > 1) {
                     args[0] = urlVids[2];
@@ -110,7 +110,7 @@ exports.run = (client, message, args) => {
                     msgIDs.forEach(id => message.channel.fetchMessage(id)
                       .then(m => m.delete())
                       .catch(console.error));
-                    YouTubeSearch();
+                    YouTubePlay();
                   }
                 });
                 collector.on('end', (collected) => {
