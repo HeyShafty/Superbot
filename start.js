@@ -7,7 +7,6 @@ const client = new Discord.Client();
 client.commands = new Enmap();
 client.aliases = new Enmap();
 client.music = {};
-client.music.queue = {};
 // ↑↑↑ on crée des Enmaps, c'est à dire des trucs qui permettent de stocker
 
 client.config = config; // on rend les paramètres du bot globales
