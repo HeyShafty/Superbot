@@ -36,6 +36,7 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] Pouvoir trouver une musique avec le nom, et pas juste un link brut
 - [ ] Playlists intégrées, changeable à guise → `/playlist`
 - [ ] Playlist par défaut sur le bot
+- [ ] Déplacer automatiquement un message dans un channel spécifié si il est en rapport avec le bot
 
 ## Tableau des fonctions et commandes actuelles **(PAS A JOUR)**
 Commande | Fonction
