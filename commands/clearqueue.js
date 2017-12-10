@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
 exports.help = {
   name: 'clearqueue',
   aliases: ['empty', 'cq', 'cc'],
-  description: 'Vide la queue des musiques',
+  description: 'Vide la queue',
   usage: '/clearqueue',
   active: true,
 };
