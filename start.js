@@ -59,9 +59,7 @@ client.on('message', async (message) => { // se lance pour chaque message
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
     message.flags = [];
-    while (args[0] && args[0][0] === '-') { // pas bon ça
-      message.flags.push(args.shift().slice(1));
-    }
+    args.forEach(a => (a.charAt(0) === '-' && a.charAt(1) !== '-' && a.length === 2 ? message.flags.push(a.split('-')[1]) : ''));
 
     // message.delete();
 
