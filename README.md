@@ -30,7 +30,7 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [ ] `/stop`
 - [ ] `/resume`
 - [ ] `/previous`
-- [ ] Dans les `command.help.usage` mettre le `config.prefix` → `client.settings` pour être général
+- [x] Dans les `command.help.usage` mettre le `config.prefix` → `client.settings` pour être général **Pas de solutions trouvées donc j'ai juste enlevé le préfixe**
 - [ ] Ajouter des fonctions utiles pour optimiser le bot dans `./modules/functions.js`
 - [ ] RichEmbed dans un channel spécifique avec la lecture d'une vidéo, réactions pour `/stop`/`/resume` || pour augmenter le volume || skip la musique...
 - [x] Pouvoir trouver une musique avec le nom, et pas juste un link brut
