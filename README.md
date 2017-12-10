@@ -8,38 +8,42 @@ Sa fonction est de jouer de la musique. Aussi simple que ça. Voila.
 
 Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 
-# Guide d'installation
+# Guide d'installation **(PAS FINI)**
 
 
 # Tout sur ce bot
 ## TO-DO list
 - [x] Faire marcher le bot
 - [x] Généraliser les termes *args, client, etc...*
-- [x] /play
-- [x] /help
+- [x] `/play`
+- [x] `/help`
 - [x] Faire afficher les alias des commandes dans le /help
-- [x] /queue
-- [x] /skip
-- [ ] /clearqueue
-- [ ] Event: 'progress' from ytld
-- [ ] Remplacer tous les `client.music.queue` par `client.music` dans `./commands/play.js`
-- [ ] Ajouter les flags dans les messages   EX: `-v` pour volume
-- [x] /volume
-- [ ] /stop `-a` pour *all* => arrête le bot
-- [ ] /resume
-- [ ] /précédent
-- [ ] Afficher une rich embed avec la lecture d'une vidéo
-- [ ] Playlists intégrées, changeable à guise
-- [ ] Pouvoir trouver une musique avec le nom, et pas juste un link brut
+- [x] `/queue`
+- [x] `/skip`
+- [x] `/clearqueue`
+- [ ] Event: 'progress' dans ytld
+- [x] Remplacer tous les `client.music.queue` par `client.music` dans `./commands/play.js`
+- [ ] Ajouter les flags dans les messages → `-v` pour volume dans `/play` || `-a` dans `/skip`
+- [ ] Ajouter les flags dans le `/help`
+- [x] `/volume`
+- [x] `/skip` `-a` pour *all* → déconnecte le bot
+- [ ] `/stop`
+- [ ] `/resume`
+- [ ] `/previous`
+- [ ] Dans les `command.help.usage` mettre le `config.prefix` → `client.settings` pour être général
+- [ ] Ajouter des fonctions utiles pour optimiser le bot dans `./modules/functions.js`
+- [ ] Afficher une RichEmbed avec la lecture d'une vidéo
+- [x] Pouvoir trouver une musique avec le nom, et pas juste un link brut
+- [ ] Playlists intégrées, changeable à guise → `/playlist`
 - [ ] Playlist par défaut sur le bot
 
-## Tableau des fonctions et commandes actuelles
+## Tableau des fonctions et commandes actuelles **(PAS A JOUR)**
 Commande | Fonction
 ------------ | -------------
 play | joue de la musique
 
 ## Comprendre le bot
-### Variable globales
+### Variable globales **(PAS A JOUR)**
 Nom | Définie dans | Utilité
 ------------- | ------------- | -------------
 client | start.js | Contient toutes les propriétés regardant le bot, commandes, token...
@@ -70,8 +74,8 @@ exports.help = {
 ## Proposez l'intégration de vos commandes
 Si vous connaissez bien GitHub, vous pouvez passer cette partie, cependant il serait normal que vous soyez nouveau!
 
-### Rédigez votre commande
+### Rédigez votre commande **(PAS FINI)**
 Il en va de soi que pour partager des nouvelles fonctionalités pour le bot, il faut que celle-ci soit codée.
 **Il faut impérativement que vos partages soient fonctionnels sous peine d'être rejetés**
 
-### Proposez un pull request
+### Proposez un pull request **(PAS FINI)**
