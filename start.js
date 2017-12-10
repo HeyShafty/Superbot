@@ -59,7 +59,12 @@ client.on('message', async (message) => { // se lance pour chaque message
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
     message.flags = [];
-    args.forEach(a => (a.charAt(0) === '-' && a.charAt(1) !== '-' && a.length === 2 ? message.flags.push(a.split('-')[1]) : ''));
+    args.forEach(a => (a.search(/^-[a-z]$/) === 0 ? message.flags.push(a.split('-')[1]) : ''));
+    /*
+    En gros on teste si pour chaque mot de l'array args, on a une lettre précédée
+      d'un tiret du 6 '-', on ajoute cette lettre dans message.flags, et ça ne marche QUE
+      dans ce cas là.
+    */
 
     // message.delete();
 
