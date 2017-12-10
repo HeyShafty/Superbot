@@ -13,6 +13,6 @@ exports.help = {
   name: 'queue',
   aliases: ['q', 'list'],
   description: 'Affiche la liste des musiques à venir',
-  usage: '/queue',
+  usage: 'queue',
   active: true,
 };

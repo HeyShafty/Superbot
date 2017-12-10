@@ -59,6 +59,6 @@ exports.help = {
   name: 'purge',
   aliases: ['del'],
   description: 'Supprime le nombre de messages donnés',
-  usage: '/purge <nombre de messages>',
+  usage: 'purge <nombre de messages>',
   active: true,
 };

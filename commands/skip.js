@@ -9,6 +9,6 @@ exports.help = {
   name: 'skip',
   aliases: ['s', '>'],
   description: 'Passe à la prochaine musique de la queue',
-  usage: '/skip [-a]',
+  usage: 'skip [-a]',
   active: true,
 };

@@ -6,6 +6,6 @@ exports.help = {
   name: 'ping',
   aliases: ['ms'],
   description: 'Donne un ping approximatif du bot et de l\'API',
-  usage: '/ping',
+  usage: 'ping',
   active: true,
 };
