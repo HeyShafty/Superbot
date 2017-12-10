@@ -32,7 +32,7 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [ ] `/previous`
 - [ ] Dans les `command.help.usage` mettre le `config.prefix` → `client.settings` pour être général
 - [ ] Ajouter des fonctions utiles pour optimiser le bot dans `./modules/functions.js`
-- [ ] RichEmbed dan un channel spécifique avec la lecture d'une vidéo, réactions pour `/stop`/`/resume` || pour augmenter le volume || skip la musique...
+- [ ] RichEmbed dans un channel spécifique avec la lecture d'une vidéo, réactions pour `/stop`/`/resume` || pour augmenter le volume || skip la musique...
 - [x] Pouvoir trouver une musique avec le nom, et pas juste un link brut
 - [ ] Playlists intégrées, changeable à guise → `/playlist`
 - [ ] Playlist par défaut sur le bot
