@@ -142,6 +142,6 @@ exports.help = {
   name: 'play',
   aliases: ['p', 'music'],
   description: 'Joue la musique dans un channel vocal à partir d\'un lien YouTube.',
-  usage: '/play <Lien YouTube>',
+  usage: 'play <Lien YouTube>',
   active: true,
 };

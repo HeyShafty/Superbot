@@ -17,6 +17,6 @@ exports.help = {
   name: 'help',
   aliases: ['h', '?'],
   description: 'Affiche toutes les commandes activées, ou donne des détails sur une commande en particulier',
-  usage: '/help [Commande]',
+  usage: 'help [Commande]',
   active: true,
 };

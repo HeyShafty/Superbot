@@ -40,29 +40,33 @@ client.on('message', async (message) => { // se lance pour chaque message
   if (message.author.bot) return;
   // ↑ si le message vient d'un utilisateur, sinon ça spam les msg en boucle
 
-  if (!message.content.startsWith(config.prefix)) return;
+  if (!message.content.startsWith(client.config.prefix)) return;
   // ↑ si le message ne commence pas par le préfixe ('/')
 
   const args = message.content.split(/ +/g);
   /* ↑ args = tous les autres mots séparés du premier pas un espace,
      ils sont répartis dans un tableau */
 
-  const command = args.shift().slice(config.prefix.length).toLowerCase();
+  const command = args.shift().slice(client.config.prefix.length).toLowerCase();
   // ↑ command = le premier mot, celui collé au / de la commande
+
+  message.flags = [];
+  args.forEach(a => (a.search(/^-[a-z]$/) === 0 ? message.flags.push(a.split('-')[1]) : ''));
+  /*
+  En gros on teste si pour chaque mot de l'array args, on a une lettre précédée
+    d'un tiret-du-6 '-', on ajoute cette lettre dans message.flags, et ça ne marche QUE
+    dans ce cas là.
+  */
 
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
   // ↑ on prend le code associé à la commande
 
   console.log(`Commande: ${command}`);
   console.log(`Arguments: ${args}`);
+  console.log(`Flags: ${message.flags}`);
 
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
-    // message.flags = [];
-    // while (args[0] && args[0][0] === '-') {
-    //   message.flags.push(args.shift().slice(1));
-    // }
-    // ↑ OSEF de ça c'est pour plus tard
 
     // message.delete();
 
@@ -94,7 +98,7 @@ client.on('ready', () => { // se lance quand le bot finit de s'allumer
   const color = embedColors[type] || 3447003;
   // ↑ on crée les propriétés du webhook à envoyer
 
-  const hook = new Discord.WebhookClient(config.webhook.id, config.webhook.token);
+  const hook = new Discord.WebhookClient(client.config.webhook.id, client.config.webhook.token);
   // ↑ on crée le webhook
   if (!hook) return console.log(`Le webhook n'a pas pu être établi, voici les paramètres envoyés: [${type}] [${title}]\n[${author.username} (${author.id})]${msg}`);
 
@@ -106,4 +110,4 @@ client.on('ready', () => { // se lance quand le bot finit de s'allumer
   //   .setDescription(msg));
 });
 
-client.login(config.token);
+client.login(client.config.token);

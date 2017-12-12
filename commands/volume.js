@@ -16,6 +16,6 @@ exports.help = {
   name: 'volume',
   aliases: ['v'],
   description: 'Affiche, change le volume',
-  usage: '/volume [volume]',
+  usage: 'volume [volume]',
   active: true,
 };

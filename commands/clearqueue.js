@@ -8,6 +8,6 @@ exports.help = {
   name: 'clearqueue',
   aliases: ['empty', 'cq', 'cc'],
   description: 'Vide la queue',
-  usage: '/clearqueue',
+  usage: 'clearqueue',
   active: true,
 };
