@@ -22,13 +22,14 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] `/skip`
 - [x] `/clearqueue`
 - [ ] Event: 'progress' dans ytld
+- [x] Ajouter les flags dans les exports
 - [x] Ajouter les flags dans les messages
   * [ ] `-v` pour volume dans `/play`
   * [x] `-a` dans `/skip`
 - [ ] Ajouter les flags dans le `/help`
 - [x] `/volume`
-- [ ] `/stop`
-- [ ] `/resume`
+- [x] `/stop`
+- [x] `/resume`
 - [ ] `/previous`
 - [ ] RichEmbed dans un channel spécifique avec la lecture d'une vidéo
   * [ ] Réactions pour `/stop` → `/resume`
