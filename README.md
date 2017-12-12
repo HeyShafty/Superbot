@@ -23,7 +23,9 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] `/clearqueue`
 - [ ] Event: 'progress' dans ytld
 - [x] Remplacer tous les `client.music.queue` par `client.music` dans `./commands/play.js`
-- [ ] Ajouter les flags dans les messages → `-v` pour volume dans `/play` || `-a` dans `/skip`
+- [x] Ajouter les flags dans les messages
+  * [ ] `-v` pour volume dans `/play`
+  * [x] `-a` dans `/skip`
 - [ ] Ajouter les flags dans le `/help`
 - [x] `/volume`
 - [x] `/skip` `-a` pour *all* → déconnecte le bot
