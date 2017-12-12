@@ -26,7 +26,7 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] Ajouter les flags dans les messages
   * [ ] `-v` pour volume dans `/play`
   * [x] `-a` dans `/skip`
-- [ ] Ajouter les flags dans le `/help`
+- [x] Ajouter les flags dans le `/help`
 - [x] `/volume`
 - [x] `/stop`
 - [x] `/resume`
