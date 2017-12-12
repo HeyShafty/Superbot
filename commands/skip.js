@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-  if (args[0] === '-a') {
+  if (message.flag.includes('-a')) {
     client.music[message.guild.id].songs.splice(0, client.music[message.guild.id].songs.length);
   }
   message.guild.voiceConnection.dispatcher.end();
