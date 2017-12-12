@@ -22,19 +22,18 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] `/skip`
 - [x] `/clearqueue`
 - [ ] Event: 'progress' dans ytld
-- [x] Remplacer tous les `client.music.queue` par `client.music` dans `./commands/play.js`
 - [x] Ajouter les flags dans les messages
   * [ ] `-v` pour volume dans `/play`
   * [x] `-a` dans `/skip`
 - [ ] Ajouter les flags dans le `/help`
 - [x] `/volume`
-- [x] `/skip` `-a` pour *all* → déconnecte le bot
 - [ ] `/stop`
 - [ ] `/resume`
 - [ ] `/previous`
-- [x] Dans les `command.help.usage` mettre le `config.prefix` → `client.settings` pour être général **Pas de solutions trouvées donc j'ai juste enlevé le préfixe**
-- [ ] Ajouter des fonctions utiles pour optimiser le bot dans `./modules/functions.js`
-- [ ] RichEmbed dans un channel spécifique avec la lecture d'une vidéo, réactions pour `/stop`/`/resume` || pour augmenter le volume || skip la musique...
+- [ ] RichEmbed dans un channel spécifique avec la lecture d'une vidéo
+  * [ ] Réactions pour `/stop` → `/resume`
+  * [ ] Pour augmenter le volume
+  * [ ] Skip la musique
 - [x] Pouvoir trouver une musique avec le nom, et pas juste un link brut
 - [ ] Playlists intégrées, changeable à guise → `/playlist`
 - [ ] Playlist par défaut sur le bot
