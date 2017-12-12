@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
     const oui = [];
     if (client.commands.has(command)) {
       command = client.commands.get(command);
-      if (command.hasOwnProperty('flags')) {
+      if (command.hasOwnProperty('flags')) { // && command.flags.active === true
         Object.values(command.flags).forEach(c => oui.push(`${c.usage} :: ${c.description}`));
       }
       message.channel.send(`== ${command.help.name} == \n\nUtilisation :: ${command.help.usage}\nAlias       :: ${command.help.aliases.map(a => a).join('  |  ')}\n\n→ ${command.help.description}${command.hasOwnProperty('flags') ? `\n\n\n= Flags =\n\n${oui.join('\n')}` : ''}`, { code: 'asciidoc' });
