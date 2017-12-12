@@ -31,6 +31,8 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] `/stop`
 - [x] `/resume`
 - [ ] `/previous`
+- [ ] `/playingTime` → .totalStreamTime
+- [ ] `/currentTime` → progression actuelle de la chanson
 - [ ] RichEmbed dans un channel spécifique avec la lecture d'une vidéo
   * [ ] Réactions pour `/stop` → `/resume`
   * [ ] Pour augmenter le volume
