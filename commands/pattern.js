@@ -7,5 +7,13 @@ exports.help = {
   aliases: ['', ''],
   description: '',
   usage: '',
-  active: false, // NE PAS OUBLIER DE CHANGER LOL
+  active: false, // !!!
+};
+
+exports.flags = {
+  a: {
+    description: '',
+    usage: '',
+    active: false, // !!!
+  },
 };
