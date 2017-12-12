@@ -15,3 +15,11 @@ exports.help = {
   usage: 'skip [-a]',
   active: true,
 };
+
+exports.flags = {
+  a: {
+    description: 'Passe la musique actuelle et toutes celles à venir',
+    usage: '-a',
+    active: true,
+  },
+};
