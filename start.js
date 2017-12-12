@@ -49,6 +49,14 @@ client.on('message', async (message) => { // se lance pour chaque message
 
   const command = args.shift().slice(client.config.prefix.length).toLowerCase();
   // ↑ command = le premier mot, celui collé au / de la commande
+  
+  message.flags = [];
+  args.forEach(a => (a.search(/^-[a-z]$/) === 0 ? message.flags.push(a.split('-')[1]) : ''));
+  /*
+  En gros on teste si pour chaque mot de l'array args, on a une lettre précédée
+    d'un tiret du 6 '-', on ajoute cette lettre dans message.flags, et ça ne marche QUE
+    dans ce cas là.
+  */
 
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
   // ↑ on prend le code associé à la commande
@@ -58,13 +66,6 @@ client.on('message', async (message) => { // se lance pour chaque message
 
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
-    message.flags = [];
-    args.forEach(a => (a.search(/^-[a-z]$/) === 0 ? message.flags.push(a.split('-')[1]) : ''));
-    /*
-    En gros on teste si pour chaque mot de l'array args, on a une lettre précédée
-      d'un tiret du 6 '-', on ajoute cette lettre dans message.flags, et ça ne marche QUE
-      dans ce cas là.
-    */
 
     // message.delete();
 
