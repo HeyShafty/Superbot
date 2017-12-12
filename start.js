@@ -63,6 +63,7 @@ client.on('message', async (message) => { // se lance pour chaque message
 
   console.log(`Commande: ${command}`);
   console.log(`Arguments: ${args}`);
+  console.log(`Flags: ${message.flags}`);
 
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
