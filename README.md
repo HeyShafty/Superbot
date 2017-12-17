@@ -17,30 +17,30 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] Généraliser les termes *args, client, etc...*
 - [x] `/play`
 - [x] `/help`
-- [x] Faire afficher les alias des commandes dans le /help
 - [x] `/queue`
 - [x] `/skip`
 - [x] `/clearqueue`
-- [ ] Event: 'progress' dans ytld
-- [x] Ajouter les flags dans les exports
-- [x] Ajouter les flags dans les messages
-  * [ ] `-v` pour volume dans `/play`
-  * [x] `-a` dans `/skip`
-- [ ] Ajouter les flags dans le `/help`
 - [x] `/volume`
 - [x] `/stop`
 - [x] `/resume`
-- [ ] `/previous`
 - [x] `/playingTime`
+- [x] Pouvoir trouver une musique avec le nom, et pas juste un link brut
+- [x] Afficher les alias des commandes dans le /help
+- [x] Ajouter les flags dans les exports
+- [x] Ajouter les flags dans les messages
+  * [x] `-a` dans `/skip`
+  * [ ] `-v` pour volume dans `/play`
+- [ ] Ajouter les flags dans le `/help`
+- [ ] Déplacer automatiquement un message dans un channel spécifié si il est en rapport avec le bot
 - [ ] `/currentTime` → progression actuelle de la chanson
+- [ ] Event: 'progress' dans ytld
+- [ ] `/previous`
 - [ ] RichEmbed dans un channel spécifique avec la lecture d'une vidéo
   * [ ] Réactions pour `/stop` → `/resume`
   * [ ] Pour augmenter le volume
   * [ ] Skip la musique
-- [x] Pouvoir trouver une musique avec le nom, et pas juste un link brut
 - [ ] Playlists intégrées, changeable à guise → `/playlist`
 - [ ] Playlist par défaut sur le bot
-- [ ] Déplacer automatiquement un message dans un channel spécifié si il est en rapport avec le bot
 
 ## Tableau des fonctions et commandes actuelles **(PAS A JOUR)**
 Commande | Fonction
