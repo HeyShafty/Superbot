@@ -30,7 +30,7 @@ Des questions? Vous me trouverez souvent [ici](https://discord.gg/3W6eFsE)!
 - [x] Ajouter les flags dans les messages
   * [x] `-a` dans `/skip`
   * [ ] `-v` pour volume dans `/play`
-- [ ] Ajouter les flags dans le `/help`
+- [x] Ajouter les flags dans le `/help`
 - [ ] Déplacer automatiquement un message dans un channel spécifié si il est en rapport avec le bot
 - [ ] `/currentTime` → progression actuelle de la chanson
 - [ ] Event: 'progress' dans ytld
