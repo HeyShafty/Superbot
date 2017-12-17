@@ -68,6 +68,9 @@ client.on('message', async (message) => { // se lance pour chaque message
   if (cmd) {
     cmd.run(client, message, args); // on execute la commande
 
+    // if (message.channel.id !== '371963640888426497') {
+    //   message.delete();
+    // }
     // message.delete();
 
     // message.guild.channels.get('371963640888426497').send(new Discord.RichEmbed()
