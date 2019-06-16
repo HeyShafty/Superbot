@@ -6,4 +6,4 @@ This is an old Discord bot that I made as a way to learn coding.
 You need to have nodejs installed. Run the start.cmd under windows to start the bot.
 
 # Command list
-I need to write that. (16/06 has to be **DONE**).
+I need to write that. (16/06 has to be **DONE**) ((whoops I didn't do it :c)).
